@@ -1,0 +1,27 @@
+{
+  "developmsent": {
+    "username": "root",
+    "password": "root",
+    "database": "node_api_ecom_sequelize",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "development": {
+    "storage": "./app.db",
+    "dialect": "sqlite"
+  },
+  "test": {
+    "username": "root",
+    "password": "root",
+    "database": "node_ecom_sequelize",
+    "host": "127.0.0.1",
+    "dialect": "sqlite3"
+  },
+  "production": {
+    "username": "root",
+    "password": "root",
+    "database": "node_ecom_sequelize",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
