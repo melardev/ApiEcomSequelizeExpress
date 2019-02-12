@@ -4,10 +4,10 @@ This is not a finished project by any means, but it has a valid enough shape to 
 If you are interested in this project take a look at my other server API implementations I have made with:
 
 - [Node Js + Bookshelf](https://github.com/melardev/ApiEcomBookshelfExpress)
-- Node Js + Mongoose
+- [Node Js + Mongoose](https://github.com/melardev/ApiEcomMongooseExpress)
 - Django
 - Flask
-- [Java Spring Boot + Hibernate]() for the most part this is the implementation of reference.
+- [Java Spring Boot + Hibernate](https://github.com/melardev/SBootApiEcomMVCHibernate)
 - Golang go-gonic
 - Ruby on Rails
 - AspNet Core

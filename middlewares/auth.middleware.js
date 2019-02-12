@@ -1,18 +1,13 @@
 const jwt = require('jsonwebtoken');
 const expressJwt = require('express-jwt');
 const AppResponseDto = require('../dtos/responses/app_response.dto');
-const bcrypt = require('bcrypt');
 
-// const checkToken = expressJwt({secret: 'JWT_SUPER_SECRET', getToken: getTokenFromHeader, userProperty: 'decodedJwt'});
 const checkToken = expressJwt({secret: process.env.JWT_SECRET || 'JWT_SUPER_SECRET', userProperty: 'decodedJwt'});
 
 const User = require('../config/sequelize.config').User;
 const Role = require('../config/sequelize.config').Role;
 
 
-/**
- *  Decode user's token
- * */
 const readToken = function (req, res, next) {
     // if the loadoUser middleware has already laoded the user then no need to reload it again
     if (req.user != null)
@@ -72,19 +67,7 @@ const getFreshUser = (required) => {
             });
     };
 };
-/**
- * Just check if user has JWT (user is logged in or not)
- */
-exports.hasJWT = (req, res, next) => {
-    if (req.headers.authorization.length > 20) {
-        if (req.query && req.query.hasOwnProperty('access_token')) {
-            req.headers.authorization = 'Bearer ' + req.query.access_token;
-        }
-        checkToken(req, res, next);
-    } else {
-        next();
-    }
-};
+
 
 exports.isAuthenticated = (req, res, next) => {
     if (req.user != null) {
@@ -94,9 +77,7 @@ exports.isAuthenticated = (req, res, next) => {
     return res.json(AppResponseDto.buildWithErrorMessages('Permission denied, you must be authenticated'))
 };
 
-/**
- * Sign token on signup
- */
+
 exports.signToken = (id) => {
     return jwt.sign(
         {id},
