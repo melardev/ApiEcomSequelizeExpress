@@ -3,7 +3,7 @@ const PageMetaDto = require('./page_meta.dto');
 function buildPagedList(tags, page, pageSize, totalItemCount, basePath) {
     return {
         success: true,
-        page_meta: PageMetaDto.build(page, pageSize, totalItemCount, basePath),
+        page_meta: PageMetaDto.build(tags.length, page, pageSize, totalItemCount, basePath),
         ...buildDtos(tags),
     }
 }

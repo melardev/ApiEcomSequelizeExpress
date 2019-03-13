@@ -1,4 +1,4 @@
-exports.builSimpleSuccess = () => {
+exports.buildSimpleSuccess = () => {
     return {success: true}
 };
 
@@ -33,7 +33,7 @@ exports.buildWithErrorMessages = (messages) => {
     return response;
 };
 
-function populateResponseWithmessages(response, success, messages) {
+function populateResponseWithMessages(response, success, messages) {
     if (response === null)
         response = {};
 
@@ -50,9 +50,12 @@ function populateResponseWithmessages(response, success, messages) {
 }
 
 exports.buildWithDtoAndMessages = (dto, messages) => {
-    return populateResponseWithmessages(dto, true, messages);
+    return populateResponseWithMessages(dto, true, messages);
 };
 
-exports.builSimpleSuccess = () => {
+exports.buildSuccessWithDto = (dto) => {
+    return populateResponseWithMessages(dto, true, null);
+};
+exports.buildSimpleSuccess = () => {
     return {success: true}
 };

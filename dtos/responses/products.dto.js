@@ -7,7 +7,7 @@ const CommentsDto = require("./comments.dto");
 function buildPagedList(products, page, pageSize, totalResourcesCount, basePath) {
     return {
         success: true,
-        page_meta: PageMetaDto.build(page, pageSize, totalResourcesCount, basePath),
+        page_meta: PageMetaDto.build(products.length, page, pageSize, totalResourcesCount, basePath),
         ...buildDtos(products),
         //products: products.map(product => product.getJsonSummary())
     }
@@ -24,7 +24,8 @@ function buildDto(product) {
         id: product.id,
         slug: product.slug,
         name: product.name,
-        image_urls: product.images ? product.images.map(image => image.filePath): [],
+        price: product.price,
+        image_urls: product.images ? product.images.map(image => image.filePath) : [],
         created_at: product.createdAt,
         updated_at: product.updatedAt,
         ...TagDto.buildDtos(product.tags),

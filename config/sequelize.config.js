@@ -10,7 +10,7 @@ const username = process.env.DB_USERNAME || sequelizeConfig[mode].username || 'r
 const password = process.env.DB_PASSWORD || sequelizeConfig[mode].password || 'root';
 
 const connectionObject = {
-    host: process.env.DB_HOST || sequelizeConfig[mode].database || 'localhost',
+    host: process.env.DB_HOST || sequelizeConfig[mode].host || 'localhost',
     dialect, // 'mysql'|'sqlite'|'postgres'|'mssql',
     // operatorsAliases: false,
     // retry: {max: 10},

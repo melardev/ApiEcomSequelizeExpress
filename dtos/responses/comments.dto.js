@@ -5,7 +5,7 @@ const PageMetaDto = require('./page_meta.dto');
 function buildPagedList(comments, page, pageSize, totalCommentsCount, basePath, includeUser = false, includeProduct = false) {
     return {
         success: true,
-        page_meta: PageMetaDto.build(page, pageSize, totalCommentsCount, basePath),
+        page_meta: PageMetaDto.build(comments.length, page, pageSize, totalCommentsCount, basePath),
         ...buildDtos(comments, includeUser, includeProduct),
     }
 }

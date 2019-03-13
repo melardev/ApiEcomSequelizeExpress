@@ -29,7 +29,7 @@ exports.getAll = (req, res, next) => {
             ],
             // [Comment, 'createdAt', 'DESC'],
 
-            attributes: ['id', 'name', 'slug', 'created_at', 'updated_at'
+            attributes: ['id', 'name', 'slug', 'price', 'created_at', 'updated_at'
                 // ['publish_on', 'created_at'],
                 // [sequelize.fn('count', sequelize.col('comments.id')), 'commentsCount']
                 // [sequelize.fn('COUNT', sequelize.col('id')), 'productsCount'] // instance.get('productsCount')

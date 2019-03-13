@@ -7,7 +7,7 @@ const PageMetaDto = require('./page_meta.dto');
 function buildPagedList(orders, page, pageSize, totalOrdersCount, basePath, includeUser = false, includeAddress = false, includeProduct = false) {
     return {
         success: true,
-        page_meta: PageMetaDto.build(page, pageSize, totalOrdersCount, basePath),
+        page_meta: PageMetaDto.build(orders.length, page, pageSize, totalOrdersCount, basePath),
         ...buildDtos(orders, includeUser, includeAddress, includeProduct),
     }
 }

@@ -41,7 +41,7 @@ exports.index = (req, res, next) => {
         const tags = results[0];
         const categories = results[1];
 
-        return res.json(PagesDto.buildHome(tags, categories));
+        return res.json(AppResponseDto.buildSuccessWithDto(PagesDto.buildHome(tags, categories)));
     }).catch(err => {
         return res.json(AppResponseDto.buildWithErrorMessages(err));
     });
